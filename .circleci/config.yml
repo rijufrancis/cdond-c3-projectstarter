@@ -44,7 +44,7 @@ jobs:
           name: Test front-end
           command: |
             cd frontend
-            mkdir -p frontend/test_results
+            mkdir test_results
             npm install
             npm run test
       - store_test_results:
@@ -59,7 +59,7 @@ jobs:
           name: Back-end test
           command: |
             cd backend
-            mkdir -p backend/test_results
+            mkdir test_results
             npm install
             npm run test
       - store_test_results:
