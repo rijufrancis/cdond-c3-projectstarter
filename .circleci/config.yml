@@ -7,7 +7,7 @@ commands:
     parameters:
       Workflow_ID:
         type: string
-        default: rbf-kk1j287dhjppmz437
+        default: rbf-kk1j287dhjppmz4371
     steps:
       - run:
           name: Destroy environment
@@ -131,16 +131,16 @@ jobs:
             aws cloudformation deploy \
               --template-file .circleci/files/backend.yml \
               --tags project=udapeople \
-              --stack-name "udapeople-backend-rbf-kk1j287dhjppmz437" \
-              --parameter-overrides ID="rbf-kk1j287dhjppmz437"  
+              --stack-name "udapeople-backend-rbf-kk1j287dhjppmz4371" \
+              --parameter-overrides ID="rbf-kk1j287dhjppmz4371"  
       - run:
           name: Ensure front-end infrastructure exist
           command: |
             aws cloudformation deploy \
               --template-file .circleci/files/frontend.yml \
               --tags project=udapeople \
-              --stack-name "udapeople-frontend-rbf-kk1j287dhjppmz437" \
-              --parameter-overrides ID="rbf-kk1j287dhjppmz437"
+              --stack-name "udapeople-frontend-rbf-kk1j287dhjppmz4371" \
+              --parameter-overrides ID="rbf-kk1j287dhjppmz4371"
       - run:
           name: Add back-end ip to ansible inventory
           command: |
@@ -152,7 +152,7 @@ jobs:
           paths:
             - inventory.txt
       - destroy_environment:
-          Workflow_ID: rbf-kk1j287dhjppmz437
+          Workflow_ID: rbf-kk1j287dhjppmz4371
 
   configure-infrastructure:
     docker:
