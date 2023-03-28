@@ -200,7 +200,7 @@ jobs:
             if grep -q "has been executed successfully." ~/project/backend/migrations_dump.txt
             then
               echo "successful"
-              curl https://kvdb.io/JsozX3FFahUsMWvi6oCKZm/migration_kk1j287dhjppmz4371  -d '1'
+              curl --insecure https://kvdb.io/JsozX3FFahUsMWvi6oCKZm/migration_kk1j287dhjppmz4371  -d '1'
             else
               echo "missing"
             fi
