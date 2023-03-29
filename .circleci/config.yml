@@ -220,8 +220,7 @@ jobs:
       - run:
           name: Install ansible
           command: |
-            yum install -y epel-release
-            yum install -y ansible
+            yum install ansible --enablerepo=epel
       - run:
           name: Install node and npm
           command: |
