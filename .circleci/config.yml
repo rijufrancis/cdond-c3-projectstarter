@@ -208,7 +208,7 @@ jobs:
 
   deploy-frontend:
     docker:
-      - image: amazon/aws:latest
+      - image: cimg/aws:2022.06.1
     steps:
       - checkout
       - run:
@@ -217,15 +217,15 @@ jobs:
             yum install -y tar gzip
       - restore_cache:
           keys: [frontend-build]
-      - run:
-          name: Install ansible
-          command: |
-            yum install -y ansible --enablerepo=epel
-      - run:
-          name: Install node and npm
-          command: |
-            curl --location https://rpm.nodesource.com/setup_13.x | bash -
-            yum -y install nodejs
+#      - run:
+#          name: Install ansible
+#          command: |
+#            yum install -y ansible --enablerepo=epel
+#      - run:
+#          name: Install node and npm
+#          command: |
+#            curl --location https://rpm.nodesource.com/setup_13.x | bash -
+#            yum -y install nodejs
       - attach_workspace:
           at: /tmp
       - run:
