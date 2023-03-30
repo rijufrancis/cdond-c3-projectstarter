@@ -211,10 +211,10 @@ jobs:
       - image: cimg/aws:2022.06.1
     steps:
       - checkout
-      - run:
-          name: Install tar gzip
-          command: |
-            yum install -y tar gzip
+#      - run:
+#          name: Install tar gzip
+#          command: |
+#            yum install -y tar gzip
       - restore_cache:
           keys: [frontend-build]
 #      - run:
