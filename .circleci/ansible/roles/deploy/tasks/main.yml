@@ -1,0 +1,34 @@
+---
+- name: "Copy artifact file"
+  copy:
+    src: artifact.tar.gz
+    dest: /tmp/artifact.tar.gz
+
+- name: Unarchive artifact
+  unarchive:
+    src: /tmp/artifact.tar.gz
+    dest: ~/
+    remote_src: yes
+
+- name: Ansible apt install build-essential, nodejs, npm
+  become: yes
+  apt:
+    name: 
+      - build-essential
+      - nodejs
+      - npm
+    state: present
+    update_cache: yes
+
+- name: Ansible npm install pm2
+  become: yes
+  npm:
+    name: pm2
+    global: yes
+    state: present
+
+- name: Stop default app
+  shell: pm2 stop default
+
+- name: "Start app"
+  shell: pm2 start npm -- start
