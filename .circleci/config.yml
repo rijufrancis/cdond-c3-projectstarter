@@ -249,7 +249,7 @@ jobs:
 
   deploy-backend:
     docker:
-      - image: python:3.7-alpine3.11
+      - image: cimg/deploy:2023.04.1
     steps:
       - checkout
       - add_ssh_keys:
@@ -257,18 +257,15 @@ jobs:
       - run:
           name: Install dependencies
           command: |
-            apk add --update ansible
+            curl -fsSL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+            sudo apt-get install -y nodejs
+            sudo apt-get install -y npm
       - attach_workspace:
           at: /tmp
-#      - run:
-#          name: Install dependencies
-#          command: |
-#            # your code here
       - run:
           name: Deploy backend
           command: |
             cd backend
-            npm install
             npm i
             npm run build
             cd ..
