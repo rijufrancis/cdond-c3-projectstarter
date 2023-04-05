@@ -1,12 +1,7 @@
 ---
-- name: "Copy artifact file"
-  copy:
-    src: artifact.tar.gz
-    dest: /tmp/artifact.tar.gz
-
 - name: Unarchive artifact
   unarchive:
-    src: /tmp/artifact.tar.gz
+    src: artifact.tar.gz
     dest: ~/
     remote_src: yes
 
